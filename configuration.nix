@@ -1,5 +1,10 @@
-{ pkgs, ... }:
+{ self, pkgs, ... }:
 {
+  users.users.johanemmanuelli = {
+    name = "johanemmanuelli";
+    home = "/Users/johanemmanuelli";
+  };
+
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages =[
