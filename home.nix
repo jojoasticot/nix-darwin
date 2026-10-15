@@ -19,13 +19,21 @@
     packages = [
       pkgs.git
       pkgs.lsd
+      pkgs.uv
     ];
+  };
+
+  programs.git = {
+    enable = true;
+    settings = {
+      user = {
+        name  = "Johan Emmanuelli";
+        email = "johan.emmanuelli2004@gmail.com";
+      };
+      init.defaultBranch = "main";
+    };
   };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
-  programs.git = {
-    enable = true;
-  };
 }
