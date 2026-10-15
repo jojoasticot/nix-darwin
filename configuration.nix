@@ -7,9 +7,23 @@
 
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
-  environment.systemPackages =[
+  environment.systemPackages = [
     pkgs.vim
   ];
+
+  environment.shellAliases = {
+    ls      = "lsd";
+    l       = "ls -al";
+    tree    = "lsd --tree";
+    hexedit = "hexedit --color";
+    gt      = "git tag -ma ";
+    gpt     = "git push --follow-tags";
+    gitlo   = "git log --graph --oneline --all";
+    c       = "clear";
+    clang   = "clang -fcolor-diagnostics";
+    "clang++" = "clang++ -fcolor-diagnostics";
+    drs     = "sudo darwin-rebuild switch --flake ~/.config/nix-darwin#MacBook-Air-de-Johan";
+  };
 
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
