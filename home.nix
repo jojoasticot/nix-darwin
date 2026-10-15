@@ -16,10 +16,18 @@
     # changes in each release.
     stateVersion = "26.05";
 
-    packages = [
-      pkgs.git
-      pkgs.lsd
-      pkgs.uv
+    packages = with pkgs; [
+      git
+      lsd
+
+      gnumake
+      cmake
+      ninja
+
+      clang
+      lld
+
+      uv
     ];
   };
 
