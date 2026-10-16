@@ -23,6 +23,7 @@
       gnumake
       cmake
       ninja
+      bear
 
       clang
       lld
@@ -30,6 +31,8 @@
       uv
 
       nixfmt
+
+      helix
     ];
   };
 
