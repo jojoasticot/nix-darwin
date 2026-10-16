@@ -23,7 +23,7 @@
     clang     = "clang -fcolor-diagnostics";
     "clang++" = "clang++ -fcolor-diagnostics";
     drs       = "sudo darwin-rebuild switch --flake ~/.config/nix-darwin#MacBook-Air-de-Johan";
-    drb       = "darwin-rebuild build --flake ~/config/nix-darwin#MacBook-Air-de-Johan";
+    drb       = "darwin-rebuild build --flake ~/.config/nix-darwin#MacBook-Air-de-Johan";
   };
 
   # Necessary for using flakes on this system.
