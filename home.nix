@@ -28,6 +28,8 @@
       lld
 
       uv
+
+      nixfmt
     ];
   };
 
