@@ -52,6 +52,12 @@
   # $ darwin-rebuild changelog
   system.stateVersion = 6;
 
+  security.pam.services.sudo_local = {
+    enable = true;
+    reattach = true;
+    touchIdAuth = true;
+  };
+
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
 
