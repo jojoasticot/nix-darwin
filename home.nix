@@ -24,6 +24,7 @@
       ninja
       bear
 
+      clang-tools
       clang
       lld
 
