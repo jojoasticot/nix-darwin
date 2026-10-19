@@ -7,23 +7,36 @@
 
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
-  environment.systemPackages = [
-    pkgs.vim
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+      git
+      vim
+      curl
+      wget
+    ];
 
-  environment.shellAliases = {
-    ls        = "lsd";
-    l         = "ls -al";
-    tree      = "lsd --tree";
-    hexedit   = "hexedit --color";
-    gt        = "git tag -ma ";
-    gpt       = "git push --follow-tags";
-    gitlo     = "git log --graph --oneline --all";
-    c         = "clear";
-    clang     = "clang -fcolor-diagnostics";
-    "clang++" = "clang++ -fcolor-diagnostics";
-    drs       = "sudo darwin-rebuild switch --flake ~/.config/nix-darwin#MacBook-Air-de-Johan";
-    drb       = "darwin-rebuild build --flake ~/.config/nix-darwin#MacBook-Air-de-Johan";
+    shellAliases = {
+      ls        = "lsd";
+      l         = "ls -al";
+      tree      = "lsd --tree";
+      hexedit   = "hexedit --color";
+      gt        = "git tag -ma ";
+      gpt       = "git push --follow-tags";
+      gitlo     = "git log --graph --oneline --all";
+      c         = "clear";
+      clang     = "clang -fcolor-diagnostics";
+      "clang++" = "clang++ -fcolor-diagnostics";
+      drs       = "sudo darwin-rebuild switch --flake ~/.config/nix-darwin#MacBook-Air-de-Johan";
+      drb       = "darwin-rebuild build --flake ~/.config/nix-darwin#MacBook-Air-de-Johan";
+    };
+
+  };
+
+  documentation = {
+    enable = true;
+    doc.enable = true;
+    info.enable = true;
+    man.enable = true;
   };
 
   # Necessary for using flakes on this system.
