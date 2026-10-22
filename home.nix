@@ -34,6 +34,7 @@
   };
 
   programs.git = import ./packages/git.nix;
+  # programs.vim = import ./packages/vim.nix;
   programs.aerospace = import ./packages/aerospace.nix;
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
