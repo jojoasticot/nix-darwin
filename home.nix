@@ -23,9 +23,6 @@
       cmake
       ninja
       bear
-
-      clang-tools
-      clang
       lld
 
       uv
