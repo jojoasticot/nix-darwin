@@ -52,6 +52,8 @@
   # $ darwin-rebuild changelog
   system.stateVersion = 6;
 
+  system.primaryUser = "johanemmanuelli";
+
   security.pam.services.sudo_local = {
     enable = true;
     reattach = true;
@@ -63,4 +65,21 @@
 
   # Disable Nix installation for nix-darwin
   nix.enable = false;
+
+  homebrew = {
+    enable = true;
+
+    brews = [
+      "clang-format"
+    ];
+
+    casks = [
+      "docker-desktop"
+      "zen"
+    ];
+
+    onActivation = {
+      cleanup = "check";
+    };
+  };
 }
