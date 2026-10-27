@@ -33,9 +33,5 @@
     ];
   };
 
-  programs.git = import ./packages/git.nix;
-  # programs.vim = import ./packages/vim.nix;
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
+  programs = import ./programs;
 }
