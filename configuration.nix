@@ -51,6 +51,13 @@
 
   system.primaryUser = "johanemmanuelli";
 
+  system.defaults.dock = {
+    autohide = true;
+    autohide-delay = 0.0;
+    autohide-time-modifier = 0.25;
+    expose-animation-duration = 0.0;
+  };
+
   security.pam.services.sudo_local = {
     enable = true;
     reattach = true;
