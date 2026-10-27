@@ -3,7 +3,7 @@
 
   settings = {
     user = {
-      name  = "Johan Emmanuelli";
+      name = "Johan Emmanuelli";
       email = "johan.emmanuelli2004@gmail.com";
     };
 
