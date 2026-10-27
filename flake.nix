@@ -21,25 +21,31 @@
 
   };
 
-  outputs = inputs@{ self, darwin, nixpkgs, home-manager }:
-  {
-    # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#MacBook-Air-de-Johan
-    darwinConfigurations = {
-      MacBook-Air-de-Johan = darwin.lib.darwinSystem {
-        specialArgs = { inherit self inputs; };
+  outputs =
+    inputs@{
+      self,
+      darwin,
+      nixpkgs,
+      home-manager,
+    }:
+    {
+      # Build darwin flake using:
+      # $ darwin-rebuild build --flake .#MacBook-Air-de-Johan
+      darwinConfigurations = {
+        MacBook-Air-de-Johan = darwin.lib.darwinSystem {
+          specialArgs = { inherit self inputs; };
 
-        modules = [
-          ./configuration.nix 
-          home-manager.darwinModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = { inherit inputs; };
-            home-manager.users.johanemmanuelli = ./home.nix;
-          }
-        ];
+          modules = [
+            ./configuration.nix
+            home-manager.darwinModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.users.johanemmanuelli = ./home.nix;
+            }
+          ];
+        };
       };
     };
-  };
 }
