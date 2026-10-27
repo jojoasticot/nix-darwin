@@ -70,20 +70,47 @@
   # Disable Nix installation for nix-darwin
   nix.enable = false;
 
+  services.yabai = {
+    enable = true;
+
+    config = {
+      layout = "bsp";
+      mouse_follows_focus = "off";
+      window_placement    = "second_child";
+      top_padding         = 0;
+      bottom_padding      = 0;
+      left_padding        = 0;
+      right_padding       = 0;
+      window_gap          = 5;
+    };
+  };
+
   homebrew = {
     enable = true;
 
     brews = [
-      "clang-format"
+      "clang-format" # sadly we cant install with clang-tools package bc clangd is broken
     ];
 
     casks = [
+      "jurplel/tap/instant-space-switcher"
+      "deezer"
+      "discord"
       "docker-desktop"
+      "ghostty"
+      "gimp"
+      "iina"
+      "nvidia-nsight-compute"
+      "nvidia-nsight-systems"
+      # "spacetile/tap/spacetile"
+      "utm"
+      "visual-studio-code"
+      "vorssaint"
       "zen"
     ];
 
     onActivation = {
-      cleanup = "check";
+      cleanup = "uninstall";
     };
   };
 }
