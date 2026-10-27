@@ -19,13 +19,10 @@
       ls        = "lsd";
       l         = "ls -al";
       tree      = "lsd --tree";
-      hexedit   = "hexedit --color";
       gt        = "git tag -ma ";
       gpt       = "git push --follow-tags";
       gitlo     = "git log --graph --oneline --all";
       c         = "clear";
-      clang     = "clang -fcolor-diagnostics";
-      "clang++" = "clang++ -fcolor-diagnostics";
       drs       = "sudo darwin-rebuild switch --flake ~/.config/nix-darwin#MacBook-Air-de-Johan";
       drb       = "darwin-rebuild build --flake ~/.config/nix-darwin#MacBook-Air-de-Johan";
     };
