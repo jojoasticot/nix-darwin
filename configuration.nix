@@ -1,4 +1,9 @@
-{ self, pkgs, ... }:
+{
+  self,
+  pkgs,
+  lib,
+  ...
+}:
 {
   users.users.johanemmanuelli = {
     name = "johanemmanuelli";
@@ -36,6 +41,12 @@
     man.enable = true;
   };
 
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "discord"
+    ];
+
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
 
@@ -56,6 +67,37 @@
     autohide-delay = 0.0;
     autohide-time-modifier = 0.25;
     expose-animation-duration = 0.0;
+
+    tilesize = 28;
+    magnification = true;
+    largesize = 60;
+    # mineffect = "suck";
+    orientation = "left";
+
+    persistent-apps = [
+      {
+        app = "/Applications/Visual Studio Code.app";
+      }
+      {
+        app = "/Applications/Zen.app";
+      }
+      {
+        app = "${pkgs.ghostty-bin}/Applications/Ghostty.app";
+      }
+      {
+        app = "${pkgs.discord}/Applications/Discord.app";
+      }
+    ];
+
+    show-recents = false;
+    static-only = false;
+  };
+
+  system.defaults.NSGlobalDomain = {
+    InitialKeyRepeat = 15;
+    KeyRepeat = 2;
+    ApplePressAndHoldEnabled = false;
+    NSAutomaticCapitalizationEnabled = false;
   };
 
   security.pam.services.sudo_local = {
@@ -82,14 +124,12 @@
     casks = [
       "jurplel/tap/instant-space-switcher"
       "deezer"
-      "discord"
       "docker-desktop"
-      "ghostty"
       "gimp"
       "iina"
       "nvidia-nsight-compute"
       "nvidia-nsight-systems"
-      # "spacetile/tap/spacetile"
+      "macfuse" # needed to connect to the afs
       "utm"
       "visual-studio-code"
       "vorssaint"

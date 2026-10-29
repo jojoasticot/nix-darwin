@@ -30,8 +30,17 @@
       nixfmt
 
       helix
+
+      discord
     ];
   };
 
-  programs = import ./programs;
+  # targets.darwin.copyApps.enable = false;
+
+  # targets.darwin.linkApps = {
+  #   enable = true;
+  #   directory = "Applications";
+  # };
+
+  programs = import ./programs { inherit pkgs; };
 }

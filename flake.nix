@@ -33,7 +33,10 @@
       # $ darwin-rebuild build --flake .#MacBook-Air-de-Johan
       darwinConfigurations = {
         MacBook-Air-de-Johan = darwin.lib.darwinSystem {
-          specialArgs = { inherit self inputs; };
+          specialArgs = {
+            inherit self inputs;
+            lib = nixpkgs.lib;
+          };
 
           modules = [
             ./configuration.nix
