@@ -71,22 +71,13 @@
     tilesize = 28;
     magnification = true;
     largesize = 60;
-    # mineffect = "suck";
     orientation = "left";
 
     persistent-apps = [
-      {
-        app = "/Applications/Visual Studio Code.app";
-      }
-      {
-        app = "/Applications/Zen.app";
-      }
-      {
-        app = "${pkgs.ghostty-bin}/Applications/Ghostty.app";
-      }
-      {
-        app = "${pkgs.discord}/Applications/Discord.app";
-      }
+      { app = "/Applications/Visual Studio Code.app"; }
+      { app = "/Applications/Zen.app"; }
+      { app = "${pkgs.ghostty-bin}/Applications/Ghostty.app"; }
+      { app = "${pkgs.discord}/Applications/Discord.app"; }
     ];
 
     show-recents = false;
