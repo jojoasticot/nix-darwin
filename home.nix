@@ -35,7 +35,8 @@
     ];
   };
 
-  # targets.darwin.copyApps.enable = false;
+  targets.darwin.copyApps.enable = true;
+  targets.darwin.linkApps.enable = false;
 
   # targets.darwin.linkApps = {
   #   enable = true;
