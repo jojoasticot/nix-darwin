@@ -54,49 +54,55 @@
   # programs.fish.enable = true;
 
   # Set Git commit hash for darwin-version.
-  system.configurationRevision = self.rev or self.dirtyRev or null;
-
-  # Used for backwards compatibility, please read the changelog before changing.
-  # $ darwin-rebuild changelog
-  system.stateVersion = 6;
-
-  system.primaryUser = "johanemmanuelli";
-
-  system.defaults.dock = {
-    autohide = true;
-    autohide-delay = 0.0;
-    autohide-time-modifier = 0.25;
-    expose-animation-duration = 0.0;
-
-    tilesize = 28;
-    magnification = true;
-    largesize = 60;
-    orientation = "left";
-
-    persistent-apps = [
-      { app = "/Applications/Visual Studio Code.app"; }
-      { app = "/Applications/Zen.app"; }
-      { app = "/Applications/Deezer.app"; }
-      { app = "/Users/johanemmanuelli/Applications/Home Manager Apps/Ghostty.app"; }
-      { app = "/Users/johanemmanuelli/Applications/Home Manager Apps/Discord.app"; }
-    ];
-
-    show-recents = false;
-    static-only = false;
-  };
-
-  system.defaults.NSGlobalDomain = {
-    InitialKeyRepeat = 15;
-    KeyRepeat = 2;
-    ApplePressAndHoldEnabled = false;
-    NSAutomaticCapitalizationEnabled = false;
+  system = 
+  {
+    configurationRevision = self.rev or self.dirtyRev or null;
+  
+    # Used for backwards compatibility, please read the changelog before changing.
+    # $ darwin-rebuild changelog
+    stateVersion = 6;
+  
+    primaryUser = "johanemmanuelli";
+  
+    defaults.dock = {
+      autohide = true;
+      autohide-delay = 0.0;
+      autohide-time-modifier = 0.25;
+      expose-animation-duration = 0.0;
+  
+      tilesize = 28;
+      magnification = true;
+      largesize = 60;
+      orientation = "left";
+  
+      persistent-apps = [
+        { app = "/Applications/Visual Studio Code.app"; }
+        { app = "/Applications/Zen.app"; }
+        { app = "/Applications/Deezer.app"; }
+        { app = "/Users/johanemmanuelli/Applications/Home Manager Apps/Ghostty.app"; }
+        { app = "/Users/johanemmanuelli/Applications/Home Manager Apps/Discord.app"; }
+        { app = "/System/Applications/System Settings.app"; }
+      ];
+  
+      show-recents = false;
+      static-only = false;
+    };
+  
+    defaults.NSGlobalDomain = {
+      InitialKeyRepeat = 15;
+      KeyRepeat = 2;
+      ApplePressAndHoldEnabled = false;
+      NSAutomaticCapitalizationEnabled = false;
+    };
+  
+    keyboard.enableKeyMapping = true;
+    keyboard.swapCapsLockAndEscape = true;
   };
 
   security.pam.services.sudo_local = {
     enable = true;
     reattach = true;
     touchIdAuth = true;
-  };
 
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
